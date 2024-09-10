@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Insert from './components/Insert';
+import PopupMenuComponent from './components/PopupMenuComponent';
+import { ShowData } from './components/pages/ShowData';
+import { UpdateData } from './components/pages/UpdateData';
+import { DeleteData } from './components/pages/DeleteData';
+import { ShowUserById } from './components/pages/ShowUserById';
+import TestMain from './test/TestMain';
+import Glasses from './test/Glasses';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        
+        <NavBar />
+        
+        <Routes>
+        <Route path="/" element={<TestMain />} />
+          <Route path="/insert" element={<Insert />} />
+          <Route path="/update" element={<UpdateData />} />
+          <Route path="/users" element={<TestMain />} />
+          <Route path="/glasses" element={<Glasses />} />
+
+
+        </Routes>
+        
+    </Router>
   );
 }
 
